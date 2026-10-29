@@ -1,0 +1,104 @@
+.login-page {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #f7f8fa;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 35px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.login-heading {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.login-heading h1 {
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.login-heading p {
+  color: #666;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-field label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+}
+
+.login-field input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 15px;
+}
+
+.login-field input:focus {
+  outline: none;
+  border-color: #2185d0;
+}
+
+.login-button {
+  padding: 12px;
+  border: none;
+  border-radius: 7px;
+  background-color: #2185d0;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #1678c2;
+}
+
+.signup-message {
+  margin-top: 22px;
+  text-align: center;
+  color: #666;
+}
+
+.signup-message a {
+  color: #2185d0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-message a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .login-card {
+    padding: 28px 20px;
+  }
+}
+
+.login-message-text {
+  margin: 0;
+  text-align: center;
+  color: #d32f2f;
+  font-size: 14px;
+}

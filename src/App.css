@@ -1,0 +1,285 @@
+.site-header {
+  background-color: white;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-container {
+  width: 95%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.site-logo {
+  color: #222;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.site-logo span {
+  color: #8b2be2;
+}
+
+.search-area {
+  flex: 1;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.hero-banner {
+  margin: 20px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.hero-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* responsive design */
+@media (max-width: 700px) {
+  .hero-banner {
+    margin: 10px;
+    height: 250px;
+  }
+}
+
+.article-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.article-section h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.article-list {
+  display: flex;
+  gap: 20px;
+}
+
+.article-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.article-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.article-card h3,
+.article-card p {
+  margin: 12px 15px;
+}
+
+/* responsive design */
+@media (max-width: 700px) {
+  .article-list {
+    flex-direction: column;
+  }
+}
+
+.tutorial-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.tutorial-section h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.tutorial-list {
+  display: flex;
+  gap: 20px;
+}
+
+.tutorial-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.tutorial-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.tutorial-card h3,
+.tutorial-card p {
+  margin: 12px 15px;
+}
+
+/* responsive design */
+@media (max-width: 700px) {
+  .tutorial-list {
+    flex-direction: column;
+  }
+}
+
+.article-section,
+.tutorial-section {
+  width: 90%;
+  max-width: 900px;
+  margin: 35px auto;
+  text-align: center;
+}
+
+.article-list,
+.tutorial-list {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.subscribe-bar {
+  width: 98%;
+  margin: 20px auto;
+  padding: 8px;
+  background-color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-sizing: border-box;
+}
+
+.subscribe-bar h3 {
+  font-size: 12px;
+  margin: 0;
+  color: black;
+}
+
+.subscribe-bar input {
+  width: 165px;
+  height: 20px;
+  padding: 2px 6px;
+  border: 1px solid #aaa;
+  box-sizing: border-box;
+}
+
+.subscribe-bar button {
+  height: 22px;
+  padding: 2px 10px;
+  background-color: #eee;
+  color: black;
+  border: 1px solid #555;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .subscribe-bar {
+    flex-wrap: wrap;
+  }
+
+  .subscribe-bar input {
+    width: 180px;
+  }
+}
+
+.site-footer {
+  background-color: #333;
+  color: white;
+  padding: 25px 10%;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-section {
+  width: 30%;
+}
+
+.footer-section h3 {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.footer-section p {
+  margin: 7px 0;
+  font-size: 13px;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .site-footer {
+    flex-direction: column;
+    padding: 25px;
+  }
+
+  .footer-section {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.social-icons i {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.social-icons a {
+  color: white;
+}
+
+.social-icons a:hover {
+  color: #6c2bd9;
+}
+
+
+.logout-button.ui.button {
+  background-color: #fff1f2 !important;
+  color: #e11d48 !important;
+  border: 1px solid #fecdd3 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease;
+}
+
+
+.logout-button.ui.button:hover {
+  background-color: #e11d48 !important;
+  color: white !important;
+  border-color: #e11d48 !important;
+}
+
+
+.logout-button.ui.button:active {
+  background-color: #be123c !important;
+  color: white !important;
+}
