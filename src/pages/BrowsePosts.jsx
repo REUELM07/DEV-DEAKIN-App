@@ -114,7 +114,7 @@ function BrowsePosts() {
     })
   );
 
-  // get posts from the backend
+  //get posts from the backend
   useEffect(() => {
     async function loadPosts() {
       try {
