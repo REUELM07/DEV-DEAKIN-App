@@ -1,0 +1,165 @@
+.snippet-card {
+background: var(--card-background);
+border: 1px solid var(--border-color);
+border-radius: 12px;
+padding: 20px;
+display: flex;
+flex-direction: column;
+gap: 16px;
+transition: transform 0.2s ease, border-color 0.2s ease;
+min-width: 0;
+}
+
+.snippet-card:hover {
+transform: translateY(-3px);
+border-color: #8175ff;
+}
+
+.snippet-card-header {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+gap: 12px;
+}
+
+.snippet-card-title {
+display: flex;
+align-items: center;
+gap: 12px;
+min-width: 0;
+}
+
+.snippet-icon {
+width: 42px;
+height: 42px;
+border-radius: 10px;
+background: rgba(101, 88, 232, 0.15);
+color: #8175ff;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+}
+
+.snippet-card-title h3 {
+color: var(--text-color);
+font-size: 17px;
+margin: 0 0 5px;
+overflow-wrap: anywhere;
+}
+
+.snippet-language {
+color: #8175ff;
+font-size: 12px;
+font-weight: 600;
+text-transform: capitalize;
+}
+
+.snippet-favourite {
+background: transparent;
+border: none;
+color: var(--secondary-text);
+padding: 6px;
+cursor: none;
+transition: color 0.2s ease;
+}
+
+.snippet-favourite:hover,
+.snippet-favourite.active {
+color: #f5b942;
+}
+
+.snippet-description {
+color: var(--secondary-text);
+font-size: 14px;
+line-height: 1.5;
+margin: 0;
+overflow-wrap: anywhere;
+}
+
+.snippet-code {
+background: var(--input-background);
+border: 1px solid var(--border-color);
+border-radius: 8px;
+padding: 14px;
+max-height: 180px;
+overflow: auto;
+margin: 0;
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+}
+
+.snippet-code code {
+color: var(--text-color);
+font-family: Consolas, Monaco, monospace;
+font-size: 13px;
+line-height: 1.6;
+}
+
+.snippet-card-footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 10px;
+border-top: 1px solid var(--border-color);
+padding-top: 14px;
+}
+
+.snippet-management {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.snippet-action {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 7px;
+background: transparent;
+border: 1px solid var(--border-color);
+border-radius: 7px;
+color: var(--secondary-text);
+padding: 8px 10px;
+font-size: 13px;
+cursor: none;
+transition: 0.2s ease;
+}
+
+.snippet-action:hover {
+color: #8175ff;
+border-color: #8175ff;
+}
+
+.delete-action:hover {
+color: #ef4444;
+border-color: #ef4444;
+}
+
+@media (max-width: 480px) {
+.snippet-card {
+padding: 15px;
+}
+
+.snippet-card-footer {
+    align-items: flex-start;
+}
+
+.snippet-action {
+    padding: 7px;
+    font-size: 12px;
+}
+}
+
+.devvault-snippet-grid {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 20px;
+width: 100%;
+}
+
+@media (max-width: 900px) {
+.devvault-snippet-grid {
+grid-template-columns: 1fr;
+}
+}

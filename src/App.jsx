@@ -17,6 +17,9 @@ import CursorFollower from './components/CursorFollower';
 
 import Pricing from './pages/Pricing';
 import BrowsePosts from './pages/BrowsePosts';
+import { Navigate } from 'react-router-dom';
+import { useAuth } from './contexts/AuthContext';
+import DevVault from './pages/DevVault';
 
 
 function Home() {
@@ -28,6 +31,20 @@ function Home() {
       <SubscribeBar />
     </>
   );
+}
+
+function ProtectedRoute({ children }) {
+  const { currentUser, token, loading } = useAuth();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!currentUser || !token) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return children;
 }
 
 function App() {
@@ -44,6 +61,7 @@ function App() {
         <Route path="/post" element={<Post />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/browse-posts" element={<BrowsePosts />} />
+        <Route path="/devvault" element={<ProtectedRoute> <DevVault /> </ProtectedRoute>}/>
       </Routes>
 
       <SiteFooter />
