@@ -6,6 +6,8 @@ import postRoutes from './postRoutes.js';
 import authRoutes from './authRoutes.js';
 import subscriptionRoutes from './subscriptionRoutes.js';
 import snippetRoutes from './snippetRoutes.js';
+import aiRoutes from './routes/aiRoutes.js';
+
 
 dotenv.config();
 
@@ -56,6 +58,9 @@ app.use('/api/subscription', subscriptionRoutes);
 
 //connect the DevVault snippet routes
 app.use('/api/snippets', snippetRoutes);
+
+// Connect the AI Learning Assistant routes
+app.use('/api/ai', aiRoutes);
 
 //start the backend server
 app.listen(PORT, () => {

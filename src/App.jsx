@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { lazy, Suspense } from 'react';
 
 import SiteHeader from './components/SiteHeader';
 import HeroBanner from './components/HeroBanner';
@@ -10,17 +11,18 @@ import SiteFooter from './components/SiteFooter';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Post from './pages/Post';
+import Pricing from './pages/Pricing';
+import BrowsePosts from './pages/BrowsePosts';
+import DevVault from './pages/DevVault';
 
-import './App.css';
+import { useAuth } from './contexts/AuthContext';
 
 import CursorFollower from './components/CursorFollower';
 
-import Pricing from './pages/Pricing';
-import BrowsePosts from './pages/BrowsePosts';
-import { Navigate } from 'react-router-dom';
-import { useAuth } from './contexts/AuthContext';
-import DevVault from './pages/DevVault';
+import './App.css';
 
+// Load AI Assistant only when the page is opened
+const AIAssistant = lazy(() => import('./pages/AIAssistant'));
 
 function Home() {
   return (
@@ -33,6 +35,7 @@ function Home() {
   );
 }
 
+// Protect pages that require login
 function ProtectedRoute({ children }) {
   const { currentUser, token, loading } = useAuth();
 
@@ -52,7 +55,7 @@ function App() {
     <BrowserRouter>
       <SiteHeader />
 
-       <CursorFollower />
+      <CursorFollower />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -61,7 +64,26 @@ function App() {
         <Route path="/post" element={<Post />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/browse-posts" element={<BrowsePosts />} />
-        <Route path="/devvault" element={<ProtectedRoute> <DevVault /> </ProtectedRoute>}/>
+
+        <Route
+          path="/devvault"
+          element={
+            <ProtectedRoute>
+              <DevVault />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/ai-assistant"
+          element={
+            <ProtectedRoute>
+              <Suspense fallback={<div>Loading AI Assistant...</div>}>
+                <AIAssistant />
+              </Suspense>
+            </ProtectedRoute>
+          }
+        />
       </Routes>
 
       <SiteFooter />
