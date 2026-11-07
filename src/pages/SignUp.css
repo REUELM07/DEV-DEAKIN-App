@@ -1,20 +1,33 @@
+/* ==============================
+   SIGNUP PAGE
+============================== */
+
 .signup-page {
   min-height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px 20px;
-  background-color: #f7f8fa;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
 }
+
+/* Signup Card */
 
 .signup-card {
   width: 100%;
   max-width: 450px;
   padding: 35px;
-  background-color: white;
+  background: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s, color 0.3s;
 }
+
+/* Heading */
 
 .signup-heading {
   text-align: center;
@@ -23,12 +36,14 @@
 
 .signup-heading h1 {
   margin-bottom: 8px;
-  color: #222;
+  color: var(--text-color);
 }
 
 .signup-heading p {
-  color: #666;
+  color: var(--secondary-text);
 }
+
+/* Form */
 
 .signup-form {
   display: flex;
@@ -44,20 +59,30 @@
 .signup-field label {
   margin-bottom: 6px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-color);
 }
 
 .signup-field input {
+  width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 7px;
+  background: var(--input-background);
+  color: var(--text-color);
   font-size: 15px;
+  transition: border-color 0.2s, background 0.3s;
+}
+
+.signup-field input::placeholder {
+  color: var(--secondary-text);
 }
 
 .signup-field input:focus {
   outline: none;
   border-color: #2185d0;
 }
+
+/* Signup Button */
 
 .signup-button {
   padding: 12px;
@@ -69,16 +94,19 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 .signup-button:hover {
   background-color: #1678c2;
 }
 
+/* Login Message */
+
 .login-message {
   margin-top: 22px;
   text-align: center;
-  color: #666;
+  color: var(--secondary-text);
 }
 
 .login-message a {
@@ -90,6 +118,8 @@
 .login-message a:hover {
   text-decoration: underline;
 }
+
+/* Responsive Design */
 
 @media (max-width: 500px) {
   .signup-card {

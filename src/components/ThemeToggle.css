@@ -1,0 +1,141 @@
+body {
+  cursor: none;
+}
+
+.cinematic-theme-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.cinematic-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 76px;
+  height: 42px;
+  padding: 4px;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.cinematic-switch.light {
+  background: radial-gradient(
+    ellipse at top left,
+    #ffffff,
+    #f1f5f9 40%,
+    #cbd5e1
+  );
+  border-color: #cbd5e1;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.12);
+}
+
+.cinematic-switch.dark {
+  background: radial-gradient(
+    ellipse at top left,
+    #1e293b,
+    #0f172a 40%,
+    #020617
+  );
+  border-color: #334155;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.3);
+}
+
+.switch-icons {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 9px;
+  pointer-events: none;
+}
+
+.switch-icons svg:first-child {
+  color: #d97706;
+  width: 15px;
+}
+
+.switch-icons svg:last-child {
+  color: #64748b;
+  width: 15px;
+}
+
+.switch-thumb {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffffff, #e2e8f0);
+  color: #d97706;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cinematic-switch.dark .switch-thumb {
+  background: linear-gradient(145deg, #64748b, #334155);
+  color: #fde68a;
+}
+
+.switch-particles {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(251, 191, 36, 0.8);
+  pointer-events: none;
+}
+
+.system-theme-button {
+  padding: 6px 9px;
+  border: 1px solid var(--border-color);
+  border-radius: 7px;
+  background: var(--card-background);
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.system-theme-button.active {
+  border-color: #64748b;
+  font-weight: bold;
+}
+
+.system-theme-button:hover {
+  opacity: 0.8;
+}
+
+.system-theme-button:focus-visible,
+.cinematic-switch:focus-visible {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .cinematic-theme-control {
+    gap: 5px;
+  }
+
+  .cinematic-switch {
+    width: 70px;
+    height: 40px;
+  }
+
+  .system-theme-button {
+    padding: 5px 8px;
+  }
+}

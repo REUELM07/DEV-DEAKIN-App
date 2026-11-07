@@ -1,7 +1,13 @@
+/* ==============================
+   HEADER
+============================== */
+
 .site-header {
-  background-color: white;
+  background-color: var(--header-background);
+  color: var(--text-color);
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .header-container {
@@ -10,13 +16,15 @@
   margin: auto;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .site-logo {
-  color: #222;
+  color: var(--text-color);
   text-decoration: none;
   font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .site-logo span {
@@ -25,17 +33,25 @@
 
 .search-area {
   flex: 1;
+  min-width: 120px;
 }
 
 .header-actions {
   display: flex;
+  align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
+
+/* ==============================
+   HERO BANNER
+============================== */
 
 .hero-banner {
   margin: 20px;
   height: 400px;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .hero-banner img {
@@ -46,23 +62,21 @@
   display: block;
 }
 
-/* responsive design */
-@media (max-width: 700px) {
-  .hero-banner {
-    margin: 10px;
-    height: 250px;
-  }
-}
+/* ==============================
+   ARTICLE SECTION
+============================== */
 
 .article-section {
   width: 90%;
   max-width: 1200px;
   margin: 40px auto;
+  color: var(--text-color);
 }
 
 .article-section h2 {
   text-align: center;
   margin-bottom: 25px;
+  color: var(--text-color);
 }
 
 .article-list {
@@ -71,11 +85,13 @@
 }
 
 .article-card {
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   overflow: hidden;
   flex: 1;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .article-card img {
@@ -87,24 +103,24 @@
 .article-card h3,
 .article-card p {
   margin: 12px 15px;
+  color: var(--text-color);
 }
 
-/* responsive design */
-@media (max-width: 700px) {
-  .article-list {
-    flex-direction: column;
-  }
-}
+/* ==============================
+   TUTORIAL SECTION
+============================== */
 
 .tutorial-section {
   width: 90%;
   max-width: 1200px;
   margin: 40px auto;
+  color: var(--text-color);
 }
 
 .tutorial-section h2 {
   text-align: center;
   margin-bottom: 25px;
+  color: var(--text-color);
 }
 
 .tutorial-list {
@@ -113,11 +129,13 @@
 }
 
 .tutorial-card {
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   overflow: hidden;
   flex: 1;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .tutorial-card img {
@@ -129,74 +147,56 @@
 .tutorial-card h3,
 .tutorial-card p {
   margin: 12px 15px;
+  color: var(--text-color);
 }
 
-/* responsive design */
-@media (max-width: 700px) {
-  .tutorial-list {
-    flex-direction: column;
-  }
-}
-
-.article-section,
-.tutorial-section {
-  width: 90%;
-  max-width: 900px;
-  margin: 35px auto;
-  text-align: center;
-}
-
-.article-list,
-.tutorial-list {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
+/* ==============================
+   SUBSCRIBE BAR
+============================== */
 
 .subscribe-bar {
   width: 98%;
   margin: 20px auto;
-  padding: 8px;
-  background-color: #888;
+  padding: 12px;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  box-sizing: border-box;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .subscribe-bar h3 {
-  font-size: 12px;
+  font-size: 14px;
   margin: 0;
-  color: black;
+  color: var(--text-color);
 }
 
 .subscribe-bar input {
-  width: 165px;
-  height: 20px;
-  padding: 2px 6px;
-  border: 1px solid #aaa;
-  box-sizing: border-box;
+  width: 180px;
+  height: 32px;
+  padding: 5px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--input-background);
+  color: var(--text-color);
 }
 
 .subscribe-bar button {
-  height: 22px;
-  padding: 2px 10px;
-  background-color: #eee;
-  color: black;
-  border: 1px solid #555;
+  height: 32px;
+  padding: 5px 12px;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
   cursor: pointer;
 }
 
-@media (max-width: 700px) {
-  .subscribe-bar {
-    flex-wrap: wrap;
-  }
-
-  .subscribe-bar input {
-    width: 180px;
-  }
-}
+/* ==============================
+   FOOTER
+============================== */
 
 .site-footer {
   background-color: #333;
@@ -214,11 +214,13 @@
 .footer-section h3 {
   margin-bottom: 12px;
   font-size: 16px;
+  color: white;
 }
 
 .footer-section p {
   margin: 7px 0;
   font-size: 13px;
+  color: white;
 }
 
 .footer-section a {
@@ -228,18 +230,6 @@
 
 .footer-section a:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 700px) {
-  .site-footer {
-    flex-direction: column;
-    padding: 25px;
-  }
-
-  .footer-section {
-    width: 100%;
-    text-align: center;
-  }
 }
 
 .social-icons {
@@ -261,6 +251,9 @@
   color: #6c2bd9;
 }
 
+/* ==============================
+   LOGOUT BUTTON
+============================== */
 
 .logout-button.ui.button {
   background-color: #fff1f2 !important;
@@ -271,15 +264,91 @@
   transition: all 0.2s ease;
 }
 
-
 .logout-button.ui.button:hover {
   background-color: #e11d48 !important;
   color: white !important;
   border-color: #e11d48 !important;
 }
 
-
 .logout-button.ui.button:active {
   background-color: #be123c !important;
   color: white !important;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 900px) {
+  .header-container {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .search-area {
+    order: 3;
+    flex-basis: 100%;
+  }
+
+  .header-actions {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-banner {
+    margin: 10px;
+    height: 250px;
+  }
+
+  .article-section,
+  .tutorial-section {
+    width: 92%;
+    margin: 30px auto;
+  }
+
+  .article-list,
+  .tutorial-list {
+    flex-direction: column;
+  }
+
+  .article-card,
+  .tutorial-card {
+    width: 100%;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    padding: 25px;
+  }
+
+  .footer-section {
+    width: 100%;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    width: 100%;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .subscribe-bar {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .subscribe-bar input {
+    width: 100%;
+    max-width: 280px;
+  }
 }

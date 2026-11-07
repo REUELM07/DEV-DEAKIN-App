@@ -1,20 +1,33 @@
+/* ==============================
+   LOGIN PAGE
+============================== */
+
 .login-page {
   min-height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px 20px;
-  background-color: #f7f8fa;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
+
+/* Login Card */
 
 .login-card {
   width: 100%;
   max-width: 420px;
   padding: 35px;
-  background-color: white;
+  background-color: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s, color 0.3s;
 }
+
+/* Heading */
 
 .login-heading {
   text-align: center;
@@ -23,12 +36,14 @@
 
 .login-heading h1 {
   margin-bottom: 8px;
-  color: #222;
+  color: var(--text-color);
 }
 
 .login-heading p {
-  color: #666;
+  color: var(--secondary-text);
 }
+
+/* Form */
 
 .login-form {
   display: flex;
@@ -44,20 +59,32 @@
 .login-field label {
   margin-bottom: 6px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-color);
 }
 
 .login-field input {
+  width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);
   border-radius: 7px;
+  background-color: var(--input-background);
+  color: var(--text-color);
   font-size: 15px;
+  transition: border-color 0.2s, background-color 0.3s;
+}
+
+.login-field input::placeholder {
+  color: var(--secondary-text);
+  opacity: 1;
 }
 
 .login-field input:focus {
   outline: none;
   border-color: #2185d0;
+  box-shadow: 0 0 0 2px rgba(33, 133, 208, 0.12);
 }
+
+/* Login Button */
 
 .login-button {
   padding: 12px;
@@ -68,16 +95,19 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .login-button:hover {
   background-color: #1678c2;
 }
 
+/* Signup Message */
+
 .signup-message {
   margin-top: 22px;
   text-align: center;
-  color: #666;
+  color: var(--secondary-text);
 }
 
 .signup-message a {
@@ -90,15 +120,19 @@
   text-decoration: underline;
 }
 
-@media (max-width: 500px) {
-  .login-card {
-    padding: 28px 20px;
-  }
-}
+/* Error Message */
 
 .login-message-text {
   margin: 0;
   text-align: center;
   color: #d32f2f;
   font-size: 14px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 500px) {
+  .login-card {
+    padding: 28px 20px;
+  }
 }
