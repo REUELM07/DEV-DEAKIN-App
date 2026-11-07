@@ -661,3 +661,177 @@
         animation: none;
     }
 }
+
+/* ==================================
+   AI RESPONSE MARKDOWN FORMATTING
+================================== */
+
+.ai-message-bubble {
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+}
+
+/* Paragraphs */
+
+.ai-message-bubble p {
+    margin: 0 0 12px;
+    line-height: 1.65;
+}
+
+.ai-message-bubble p:last-child {
+    margin-bottom: 0;
+}
+
+/* Headings */
+
+.ai-message-bubble h1,
+.ai-message-bubble h2,
+.ai-message-bubble h3,
+.ai-message-bubble h4 {
+    margin: 22px 0 10px;
+    color: var(--text-color);
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.ai-message-bubble h1 {
+    font-size: 21px;
+}
+
+.ai-message-bubble h2 {
+    font-size: 18px;
+}
+
+.ai-message-bubble h3 {
+    font-size: 16px;
+}
+
+.ai-message-bubble h4 {
+    font-size: 14px;
+}
+
+.ai-message-bubble > h1:first-child,
+.ai-message-bubble > h2:first-child,
+.ai-message-bubble > h3:first-child {
+    margin-top: 0;
+}
+
+/* Lists */
+
+.ai-message-bubble ul,
+.ai-message-bubble ol {
+    margin: 8px 0 15px;
+    padding-left: 25px;
+}
+
+.ai-message-bubble li {
+    margin: 5px 0;
+    padding-left: 3px;
+    line-height: 1.6;
+}
+
+.ai-message-bubble li > p {
+    margin: 0;
+}
+
+/* Bold and italic text */
+
+.ai-message-bubble strong {
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.ai-message-bubble em {
+    color: var(--secondary-text);
+}
+
+/* Inline code */
+
+.ai-message-bubble :not(pre) > code {
+    padding: 3px 7px;
+    border-radius: 5px;
+    background: rgba(145, 92, 245, 0.15);
+    color: #bd9aff;
+    font-size: 0.9em;
+    font-family: Consolas, monospace;
+}
+
+/* Code blocks */
+
+.ai-message-bubble pre {
+    margin: 14px 0;
+    padding: 16px;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: #151515;
+    color: #e5e7eb;
+    line-height: 1.6;
+}
+
+.ai-message-bubble pre code {
+    background: transparent;
+    color: inherit;
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 13px;
+    white-space: pre;
+}
+
+/* Tables */
+
+.ai-message-bubble table {
+    width: 100%;
+    margin: 15px 0;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.ai-message-bubble th,
+.ai-message-bubble td {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.ai-message-bubble th {
+    background: rgba(145, 92, 245, 0.15);
+    font-weight: 700;
+}
+
+/* Blockquotes */
+
+.ai-message-bubble blockquote {
+    margin: 12px 0;
+    padding: 10px 15px;
+    border-left: 3px solid #9564f5;
+    background: rgba(145, 92, 245, 0.08);
+    color: var(--secondary-text);
+}
+
+/* Horizontal separators */
+
+.ai-message-bubble hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 650px) {
+    .ai-message-bubble h1 {
+        font-size: 19px;
+    }
+
+    .ai-message-bubble h2 {
+        font-size: 17px;
+    }
+
+    .ai-message-bubble pre {
+        padding: 12px;
+    }
+
+    .ai-message-bubble table {
+        font-size: 11px;
+    }
+}

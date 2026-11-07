@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Bot, UserRound, Send, Sparkles } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import AIWelcome from '../components/ai/AIWelcome';
 import '../components/styles/AIAssistant.css';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
@@ -14,6 +16,13 @@ function AIAssistant() {
     const [messages, setMessages] = useState([]);
     const [messageInput, setMessageInput] = useState('');
     const [loading, setLoading] = useState(false);
+
+    const messagesEndRef = useRef(null);
+    useEffect(() => {messagesEndRef.current?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end'
+    });
+    }, [messages, loading]);
 
     const handleSend = async () => {
         const userMessage = messageInput.trim();
@@ -125,6 +134,7 @@ function AIAssistant() {
                                         Ask me about programming, debugging,
                                         algorithms, or any software development topic.
                                     </p>
+                                
                                 </div>
                             )}
 
@@ -149,7 +159,7 @@ function AIAssistant() {
                                         </span>
 
                                         <div className="ai-message-bubble">
-                                            {message.content}
+                                            <ReactMarkdown remarkPlugins={[remarkGfm]}>{message.content}</ReactMarkdown>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -173,6 +183,7 @@ function AIAssistant() {
                                 </div>
                             )}
 
+                            <div ref={messagesEndRef} />
                         </div>
 
                         <div className="ai-chat-input-area">
