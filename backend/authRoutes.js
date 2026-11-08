@@ -23,12 +23,14 @@ const MAX_RESENDS = 3;
 // Create and email a new OTP challenge
 async function createChallenge(details) {
   const {
-    email,
-    type,
-    fullName = '',
-    passwordHash = '',
-    userId = ''
-  } = details;
+  email,
+  type,
+  fullName = '',
+  username = '',
+  usernameLower = '',
+  passwordHash = '',
+  userId = ''
+} = details;
 
   // Limit repeated OTP requests for the same email and purpose
   const recentRequests = await challenges
@@ -49,6 +51,8 @@ async function createChallenge(details) {
     email,
     type,
     fullName,
+    username,
+    usernameLower,
     passwordHash,
     userId,
     otpHash: hashOTP(otp, challengeId),
@@ -125,17 +129,27 @@ async function verifyChallenge(challengeId, enteredOTP, expectedType) {
 // Registration: send verification OTP
 router.post('/register', async (req, res) => {
   try {
-    const { fullName, email, password } = req.body;
+    const { fullName, username, email, password } = req.body;
 
-    if (!fullName || !email || !password) {
+    if (!fullName || !username || !email || !password) {
       return res.status(400).json({
-        message: 'Please provide your name, email and password.'
+        message: 'Please provide your name, username, email and password.'
       });
     }
 
     const cleanName = fullName.trim();
     const cleanEmail = email.toLowerCase().trim();
+    const cleanUsername = username.trim();
+    const usernameLower = cleanUsername.toLowerCase();
 
+    // Validate username
+    if (!/^[a-zA-Z0-9_]{3,20}$/.test(cleanUsername)) {
+      return res.status(400).json({
+        message: 'Username must contain 3-20 characters using only letters, numbers and underscores.'
+      });
+    }
+
+    // Validate name and email
     if (
       !cleanName ||
       cleanName.length > 100 ||
@@ -146,12 +160,14 @@ router.post('/register', async (req, res) => {
       });
     }
 
+    // Validate password
     if (password.length < 6 || password.length > 128) {
       return res.status(400).json({
         message: 'Password must contain between 6 and 128 characters.'
       });
     }
 
+    // Check whether email already exists
     const existingUsers = await users
       .where('email', '==', cleanEmail)
       .limit(1)
@@ -163,12 +179,26 @@ router.post('/register', async (req, res) => {
       });
     }
 
+    // Check whether username already exists
+    const existingUsername = await users
+      .where('usernameLower', '==', usernameLower)
+      .limit(1)
+      .get();
+
+    if (!existingUsername.empty) {
+      return res.status(409).json({
+        message: 'This username is already taken. Please choose another.'
+      });
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const challengeId = await createChallenge({
       email: cleanEmail,
       type: 'registration',
       fullName: cleanName,
+      username: cleanUsername,
+      usernameLower: usernameLower,
       passwordHash: hashedPassword
     });
 
@@ -231,6 +261,8 @@ router.post('/register/verify-otp', async (req, res) => {
 
     await userRef.set({
       fullName: challenge.fullName,
+      username: challenge.username,
+      usernameLower: challenge.usernameLower,
       email: challenge.email,
       password: challenge.passwordHash,
       subscription: 'Free',
@@ -370,11 +402,12 @@ router.post('/login/verify-otp', async (req, res) => {
       message: 'Login successful.',
       token,
       user: {
-        id: userDocument.id,
-        fullName: userData.fullName || userData.name || '',
-        email: userData.email,
-        subscription: userData.subscription || 'Free'
-      }
+      id: userDocument.id,
+      fullName: userData.fullName || userData.name || '',
+      username: userData.username || '',
+      email: userData.email,
+      subscription: userData.subscription || 'Free'
+    }
     });
 
   } catch (error) {
@@ -487,6 +520,7 @@ router.get('/me', verifyToken, async (req, res) => {
       user: {
         id: userDocument.id,
         fullName: userData.fullName || userData.name || '',
+        username: userData.username || '',
         email: userData.email,
         subscription: userData.subscription || 'Free'
       }

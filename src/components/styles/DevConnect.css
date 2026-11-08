@@ -1,0 +1,315 @@
+/* =================================
+   DEVCONNECT WELCOME SCREEN
+================================= */
+
+.devconnect-welcome-overlay {
+  min-height: 85vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 20px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(139, 92, 246, 0.13), transparent 40%),
+    radial-gradient(ellipse at 85% 80%, rgba(56, 189, 248, 0.12), transparent 40%),
+    var(--background-color);
+}
+
+/* Welcome Card */
+
+.devconnect-welcome-card {
+  width: 100%;
+  max-width: 850px;
+  padding: 55px 45px 35px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  background: var(--card-background);
+  box-shadow: 0 20px 65px rgba(0, 0, 0, 0.12);
+}
+
+/* Decorative top line */
+
+.devconnect-welcome-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  width: 70%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #8B5CF6,
+    #38BDF8,
+    transparent
+  );
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+/* Main Icon */
+
+.devconnect-icon-wrapper {
+  width: 115px;
+  height: 115px;
+  margin: 0 auto 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.devconnect-icon {
+  width: 82px;
+  height: 82px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  color: white;
+  background: linear-gradient(135deg, #8B5CF6, #6366F1, #38BDF8);
+  box-shadow: 0 10px 35px rgba(139, 92, 246, 0.35);
+}
+
+.devconnect-icon-glow {
+  position: absolute;
+  width: 105px;
+  height: 105px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.2);
+  filter: blur(25px);
+}
+
+/* Floating Sparkles */
+
+.devconnect-spark {
+  position: absolute;
+  color: #8B5CF6;
+  font-size: 23px;
+  z-index: 3;
+}
+
+.spark-one {
+  top: 0;
+  right: 5px;
+}
+
+.spark-two {
+  bottom: 8px;
+  left: 0;
+  color: #38BDF8;
+}
+
+.spark-three {
+  top: 12px;
+  left: 5px;
+  color: #38BDF8;
+}
+
+.spark-four {
+  bottom: 0;
+  right: 5px;
+}
+
+/* Welcome Text */
+
+.devconnect-welcome-label {
+  display: inline-block;
+  color: #8B5CF6;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.devconnect-welcome-card h1 {
+  color: var(--text-color);
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 0 22px;
+}
+
+.devconnect-main-heading {
+  color: var(--text-color);
+  font-size: clamp(32px, 5vw, 49px);
+  line-height: 1.2;
+  font-weight: 800;
+  margin: 0 0 20px;
+  letter-spacing: -1.5px;
+}
+
+.devconnect-main-heading span {
+  background: linear-gradient(90deg, #8B5CF6, #6366F1, #38BDF8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.devconnect-description {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: var(--secondary-text);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Feature Cards */
+
+.devconnect-features {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.devconnect-features div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--background-color);
+  color: var(--text-color);
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.devconnect-features div:hover {
+  transform: translateY(-4px);
+  border-color: #8B5CF6;
+}
+
+.devconnect-features svg {
+  color: #8B5CF6;
+}
+
+/* Tagline */
+
+.devconnect-tagline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 25px 0;
+  color: var(--secondary-text);
+  font-size: 13px;
+}
+
+.devconnect-tagline svg {
+  color: #8B5CF6;
+}
+
+/* Start Button */
+
+.devconnect-start-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 27px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background: linear-gradient(100deg, #8B5CF6, #6366F1, #3B82F6);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.25);
+}
+
+/* Skip Button */
+
+.devconnect-skip-button {
+  display: block;
+  margin: 13px auto 0;
+  padding: 6px 12px;
+  border: none;
+  background: transparent;
+  color: var(--secondary-text);
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.devconnect-skip-button:hover {
+  color: #8B5CF6;
+  opacity: 1;
+}
+
+/* Footer */
+
+.devconnect-welcome-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  color: var(--secondary-text);
+  font-size: 11px;
+}
+
+.devconnect-welcome-footer svg {
+  color: #8B5CF6;
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 600px) {
+  .devconnect-welcome-overlay {
+    min-height: 80vh;
+    padding: 20px 12px;
+  }
+
+  .devconnect-welcome-card {
+    padding: 40px 20px 25px;
+    border-radius: 18px;
+  }
+
+  .devconnect-welcome-card h1 {
+    font-size: 24px;
+  }
+
+  .devconnect-main-heading {
+    font-size: 32px;
+    letter-spacing: -0.8px;
+  }
+
+  .devconnect-description {
+    font-size: 13px;
+  }
+
+  .devconnect-features {
+    flex-direction: column;
+  }
+
+  .devconnect-features div {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .devconnect-tagline {
+    font-size: 12px;
+  }
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .devconnect-features div {
+    transition: none;
+  }
+}

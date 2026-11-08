@@ -24,6 +24,8 @@ import './App.css';
 // Load AI Assistant only when the page is opened
 const AIAssistant = lazy(() => import('./pages/AIAssistant'));
 
+const DevConnect = lazy(() => import('./pages/DevConnect'));
+
 function Home() {
   return (
     <>
@@ -84,6 +86,17 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/devconnect"
+          element={
+          <ProtectedRoute>
+          <Suspense fallback={<div>Loading DevConnect...</div>}>
+          <DevConnect />
+        </Suspense>
+      </ProtectedRoute>
+      }
+      />
       </Routes>
 
       <SiteFooter />

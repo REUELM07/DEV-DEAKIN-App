@@ -5,26 +5,28 @@
 .site-header {
   background-color: var(--header-background);
   color: var(--text-color);
-  padding: 10px;
+  padding: 14px 0;
   border-bottom: 1px solid var(--border-color);
   transition: background-color 0.3s, color 0.3s;
 }
 
 .header-container {
-  width: 95%;
-  max-width: 1200px;
-  margin: auto;
+  width: 96%;
+  max-width: 1500px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 14px 24px;
 }
 
 .site-logo {
   color: var(--text-color);
   text-decoration: none;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 21px;
+  font-weight: 700;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .site-logo span {
@@ -32,15 +34,80 @@
 }
 
 .search-area {
-  flex: 1;
-  min-width: 120px;
+  flex: 1 1 320px;
+  min-width: 220px;
+  max-width: 760px;
+}
+
+.search-area .ui.input {
+  width: 100%;
+}
+
+.search-area input {
+  min-height: 40px;
 }
 
 .header-actions {
+  flex: 1 0 100%;
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: flex-end;
   flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.header-actions > a {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.header-actions .header-nav-button.ui.button {
+  margin: 0 !important;
+  min-height: 38px;
+  padding: 10px 16px !important;
+  white-space: nowrap;
+  border-radius: 7px;
+}
+
+.header-actions .cinematic-theme-control {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+
+.welcome-message {
+  color: var(--text-color);
+  font-size: 14px;
+  white-space: nowrap;
+  margin: 0 4px;
+}
+
+.logout-button.ui.button {
+  margin: 0 !important;
+  min-height: 38px;
+  padding: 10px 20px !important;
+  white-space: nowrap;
+  background-color: #fff1f2 !important;
+  color: #e11d48 !important;
+  border: 1px solid #fecdd3 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease;
+}
+
+.logout-button.ui.button:hover {
+  background-color: #e11d48 !important;
+  color: white !important;
+  border-color: #e11d48 !important;
+}
+
+.logout-button.ui.button:active {
+  background-color: #be123c !important;
+  color: white !important;
 }
 
 /* ==============================
@@ -252,53 +319,61 @@
 }
 
 /* ==============================
-   LOGOUT BUTTON
-============================== */
-
-.logout-button.ui.button {
-  background-color: #fff1f2 !important;
-  color: #e11d48 !important;
-  border: 1px solid #fecdd3 !important;
-  border-radius: 8px !important;
-  font-weight: 600 !important;
-  transition: all 0.2s ease;
-}
-
-.logout-button.ui.button:hover {
-  background-color: #e11d48 !important;
-  color: white !important;
-  border-color: #e11d48 !important;
-}
-
-.logout-button.ui.button:active {
-  background-color: #be123c !important;
-  color: white !important;
-}
-
-/* ==============================
    RESPONSIVE DESIGN
 ============================== */
 
+@media (max-width: 1100px) {
+  .header-container {
+    gap: 12px 18px;
+  }
+
+  .header-actions {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 900px) {
   .header-container {
-    flex-wrap: wrap;
+    width: 94%;
     gap: 12px;
   }
 
   .search-area {
-    order: 3;
-    flex-basis: 100%;
+    flex: 1 1 250px;
+    max-width: none;
   }
 
   .header-actions {
-    margin-left: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 9px;
   }
 }
 
 @media (max-width: 700px) {
-  .hero-banner {
-    margin: 10px;
-    height: 250px;
+  .site-header {
+    padding: 12px 0;
+  }
+
+  .header-container {
+    width: 92%;
+    justify-content: center;
+  }
+
+  .site-logo {
+    width: 100%;
+    text-align: center;
+  }
+
+  .search-area {
+    flex: 1 1 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .header-actions {
+    justify-content: center;
+    padding-top: 12px;
   }
 
   .article-section,
@@ -333,13 +408,21 @@
 }
 
 @media (max-width: 480px) {
-  .header-container {
-    width: 100%;
-  }
-
   .header-actions {
     width: 100%;
     justify-content: center;
+    gap: 8px;
+  }
+
+  .header-actions .header-nav-button.ui.button {
+    padding: 9px 12px !important;
+    font-size: 13px;
+  }
+
+  .welcome-message {
+    width: 100%;
+    text-align: center;
+    margin: 4px 0;
   }
 
   .subscribe-bar {
@@ -352,3 +435,4 @@
     max-width: 280px;
   }
 }
+

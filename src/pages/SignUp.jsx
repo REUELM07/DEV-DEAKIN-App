@@ -8,6 +8,7 @@ function SignUp() {
   const navigate = useNavigate();
 
   const [fullName, setFullName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -26,8 +27,15 @@ function SignUp() {
     event.preventDefault();
     setMessage('');
 
-    if (!fullName.trim() || !email.trim() || !password || !confirmPassword) {
+    const cleanUsername = username.trim();
+
+    if (!fullName.trim() || !cleanUsername || !email.trim() || !password || !confirmPassword) {
       setMessage('Please fill in all fields.');
+      return;
+    }
+
+    if (!/^[a-zA-Z0-9_]{3,20}$/.test(cleanUsername)) {
+      setMessage('Username must contain 3-20 characters using only letters, numbers and underscores.');
       return;
     }
 
@@ -58,6 +66,7 @@ function SignUp() {
         },
         body: JSON.stringify({
           fullName: fullName.trim(),
+          username: cleanUsername,
           email: cleanEmail,
           password: password
         })
@@ -108,7 +117,6 @@ function SignUp() {
 
       setMessage('Account verified successfully!');
 
-      // Redirect after the success animation
       setTimeout(() => {
         navigate('/login');
       }, 1500);
@@ -177,6 +185,21 @@ function SignUp() {
                   onChange={(event) => setFullName(event.target.value)}
                   required
                 />
+              </div>
+
+              <div className="signup-field">
+                <label htmlFor="signupUsername">Username</label>
+                <input
+                  type="text"
+                  id="signupUsername"
+                  placeholder="Choose a username (e.g. reuel_dev)"
+                  value={username}
+                  onChange={(event) => setUsername(event.target.value)}
+                  minLength={3}
+                  maxLength={20}
+                  required
+                />
+                <small>3-20 characters. Letters, numbers and underscores only.</small>
               </div>
 
               <div className="signup-field">

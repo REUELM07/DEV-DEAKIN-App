@@ -62,6 +62,12 @@ function SiteHeader() {
                 </Button>
               </Link>
 
+              <Link to="/devconnect">
+                <Button basic className="header-nav-button">
+                DevConnect
+                </Button>
+            </Link>
+
               <span className="welcome-message">
                 Welcome, {currentUser.fullName}
               </span>
