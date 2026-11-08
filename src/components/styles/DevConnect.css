@@ -313,3 +313,418 @@
     transition: none;
   }
 }
+
+/* Main DevConnect dashboard */
+
+.devconnect-main {
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+    padding: 35px 25px;
+    color: var(--text-primary);
+}
+
+.devconnect-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+.devconnect-header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.devconnect-header p {
+    color: var(--text-secondary);
+}
+
+.devconnect-user-label {
+    padding: 10px 16px;
+    border-radius: 20px;
+    background: var(--bg-secondary);
+}
+
+.devconnect-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 22px;
+}
+
+.devconnect-sidebar,
+.devconnect-search-box,
+.devconnect-person-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.devconnect-sidebar h2,
+.devconnect-search-box h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 19px;
+    margin-bottom: 18px;
+}
+
+.devconnect-person {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 5px;
+    font-size: 14px;
+}
+
+.devconnect-empty {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.devconnect-search-box p {
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+}
+
+.devconnect-search-box form {
+    display: flex;
+    gap: 10px;
+}
+
+.devconnect-search-box input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px;
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    outline: none;
+}
+
+.devconnect-search-box button,
+.devconnect-person-card button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 17px;
+    border: none;
+    border-radius: 9px;
+    background: #6366f1;
+    color: white;
+    cursor: pointer;
+}
+
+.devconnect-search-box button:disabled,
+.devconnect-person-card button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.devconnect-error {
+    margin-top: 15px;
+    color: #ef4444 !important;
+}
+
+.devconnect-results {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.devconnect-person-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.devconnect-person-avatar {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #6366f1;
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.devconnect-person-card h3 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.devconnect-person-card p {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin: 0;
+}
+
+.devconnect-person-card button {
+    margin-left: auto;
+}
+
+@media (max-width: 700px) {
+    .devconnect-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .devconnect-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .devconnect-search-box form {
+        flex-direction: column;
+    }
+
+    .devconnect-person-card {
+        flex-wrap: wrap;
+    }
+}
+
+/* =================================
+   DEVCONNECT PRIVATE MESSAGING
+================================= */
+
+.devconnect-content {
+    min-width: 0;
+}
+
+.devconnect-chat-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 570px;
+    height: 70vh;
+    max-height: 760px;
+    overflow: hidden;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+}
+
+.devconnect-chat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.devconnect-chat-header .devconnect-person-avatar {
+    flex-shrink: 0;
+}
+
+.devconnect-chat-person {
+    min-width: 0;
+}
+
+.devconnect-chat-person h2 {
+    margin: 0 0 4px;
+    color: var(--text-primary);
+    font-size: 16px;
+}
+
+.devconnect-chat-person p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.devconnect-back-button,
+.devconnect-close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 9px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.devconnect-close-button {
+    margin-left: auto;
+}
+
+.devconnect-message-list {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    padding: 22px;
+    background:
+        radial-gradient(ellipse at 15% 10%, rgba(139, 92, 246, 0.06), transparent 45%),
+        var(--bg-primary);
+}
+
+.devconnect-chat-empty {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.devconnect-chat-empty svg {
+    margin-bottom: 12px;
+    color: #8B5CF6;
+}
+
+.devconnect-chat-empty p {
+    margin: 0 0 6px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.devconnect-chat-empty span {
+    font-size: 13px;
+}
+
+.devconnect-message-row {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.devconnect-message-row.my-message-row {
+    justify-content: flex-end;
+}
+
+.devconnect-message {
+    max-width: min(75%, 520px);
+    padding: 11px 14px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 14px 14px 14px 4px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    overflow-wrap: anywhere;
+}
+
+.devconnect-message.my-message {
+    border-color: transparent;
+    border-radius: 14px 14px 4px 14px;
+    background: linear-gradient(110deg, #6366f1, #8B5CF6);
+    color: #ffffff;
+}
+
+.devconnect-message p {
+    margin: 0 0 6px;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.devconnect-message span {
+    display: block;
+    color: inherit;
+    font-size: 10px;
+    opacity: 0.75;
+    text-align: right;
+}
+
+.devconnect-typing {
+    align-self: flex-start;
+    color: var(--text-secondary);
+    font-size: 12px;
+    font-style: italic;
+    padding: 2px 4px;
+}
+
+.devconnect-chat-error {
+    margin: 0;
+    padding: 8px 18px;
+    color: #ef4444;
+    font-size: 12px;
+}
+
+.devconnect-message-form {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+}
+
+.devconnect-message-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    outline: none;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.devconnect-message-form input:focus,
+.devconnect-search-box input:focus {
+    border-color: #8B5CF6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+.devconnect-message-form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 18px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(110deg, #6366f1, #8B5CF6);
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.devconnect-message-form button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+    .devconnect-chat-panel {
+        min-height: 520px;
+        height: 72vh;
+    }
+
+    .devconnect-message-list {
+        padding: 15px 12px;
+    }
+
+    .devconnect-message {
+        max-width: 88%;
+    }
+
+    .devconnect-message-form {
+        padding: 10px;
+    }
+
+    .devconnect-message-form button {
+        padding: 0 13px;
+    }
+
+    .devconnect-message-form button span {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .devconnect-message-list {
+        scroll-behavior: auto;
+    }
+}
