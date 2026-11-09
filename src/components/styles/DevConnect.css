@@ -1,6 +1,4 @@
-/* =================================
-   DEVCONNECT WELCOME SCREEN
-================================= */
+/* DEVCONNECT WELCOME SCREEN */
 
 .devconnect-welcome-overlay {
   min-height: 85vh;
@@ -264,9 +262,7 @@
   color: #8B5CF6;
 }
 
-/* =================================
-   RESPONSIVE DESIGN
-================================= */
+/* RESPONSIVE DESIGN */
 
 @media (max-width: 600px) {
   .devconnect-welcome-overlay {
@@ -489,9 +485,7 @@
     }
 }
 
-/* =================================
-   DEVCONNECT PRIVATE MESSAGING
-================================= */
+/* DEVCONNECT PRIVATE MESSAGING */
 
 .devconnect-content {
     min-width: 0;

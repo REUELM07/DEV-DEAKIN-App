@@ -401,9 +401,8 @@
     }
 }
 
-/* ==================================
-   AI WELCOME SCREEN
-================================== */
+
+/* AI WELCOME SCREEN */
 
 .ai-welcome-overlay {
     width: 100%;
@@ -662,9 +661,7 @@
     }
 }
 
-/* ==================================
-   AI RESPONSE MARKDOWN FORMATTING
-================================== */
+/* AI RESPONSE MARKDOWN FORMATTIN */
 
 .ai-message-bubble {
     line-height: 1.65;

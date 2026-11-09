@@ -83,10 +83,8 @@ setInterval(async () => {
 }, 30000);
 
 
-// ========================================
-// DEVELOPER SEARCH
-// ========================================
 
+// DEVELOPER SEARCH
 router.get('/developers', verifyToken, async (req, res) => {
     try {
         const searchName = (req.query.username || '').toLowerCase().trim();
@@ -119,10 +117,7 @@ router.get('/developers', verifyToken, async (req, res) => {
 });
 
 
-// ========================================
-// ONLINE PRESENCE
-// ========================================
-
+//ONLINE PRESENCE
 router.post('/presence/heartbeat', verifyToken, async (req, res) => {
     try {
         const userId = req.user.userId;
@@ -200,10 +195,8 @@ router.get('/online', verifyToken, async (req, res) => {
 });
 
 
-// ========================================
-// CREATE OR REOPEN CONVERSATION
-// ========================================
 
+//CREATE OR REOPEN CONVERSATION
 router.post('/conversations', verifyToken, async (req, res) => {
     try {
         const userId = req.user.userId;
@@ -279,10 +272,6 @@ router.post('/conversations', verifyToken, async (req, res) => {
 });
 
 
-// ========================================
-// CONVERSATION HEARTBEAT
-// ========================================
-
 router.post('/conversations/:conversationId/heartbeat', verifyToken, async (req, res) => {
     try {
         const conversationRef = conversations.doc(req.params.conversationId);
@@ -327,10 +316,8 @@ router.post('/conversations/:conversationId/heartbeat', verifyToken, async (req,
 });
 
 
-// ========================================
-// GET CONVERSATION MESSAGES
-// ========================================
 
+//GET CONVERSATION MESSAGES
 router.get('/conversations/:conversationId/messages', verifyToken, async (req, res) => {
     try {
         const conversationRef = conversations.doc(req.params.conversationId);
@@ -397,10 +384,8 @@ router.get('/conversations/:conversationId/messages', verifyToken, async (req, r
 });
 
 
-// ========================================
-// SEND MESSAGE
-// ========================================
 
+//SEND MESSAGE
 router.post('/conversations/:conversationId/messages', verifyToken, async (req, res) => {
     try {
         const conversationRef = conversations.doc(req.params.conversationId);
@@ -471,10 +456,8 @@ router.post('/conversations/:conversationId/messages', verifyToken, async (req, 
 });
 
 
-// ========================================
-// TYPING INDICATOR
-// ========================================
 
+//TYPING INDICATOR
 router.post('/conversations/:conversationId/typing', verifyToken, async (req, res) => {
     try {
         const conversationRef = conversations.doc(req.params.conversationId);
